@@ -6,4 +6,10 @@ describe("Docking Station", function(){
     expect(dockingStation.releaseBike()).toEqual(jasmine.any(Object));
   });
 
+  it('releases working bike', function(){
+    dockingStation = new DockingStation();
+    bike = dockingStation.releaseBike();
+    expect(bike.isWorking()).toEqual(true);
+  });
+
 });
