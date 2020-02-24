@@ -1,6 +1,7 @@
 function DockingStation() {
+  this._bike = 'bike'
 }
 
 DockingStation.prototype.releaseBike = function() {
-  return 'bike';
+  return this._bike
 }
