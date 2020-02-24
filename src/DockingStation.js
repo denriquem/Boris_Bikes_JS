@@ -1,5 +1,5 @@
 function DockingStation() {
-  this._bike = 'bike'
+  this._bike = 'here is a bike!'
 }
 
 DockingStation.prototype.releaseBike = function() {
