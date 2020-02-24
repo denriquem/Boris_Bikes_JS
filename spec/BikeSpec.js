@@ -5,4 +5,5 @@ describe ('Bike', function(){
     bike = new Bike();
     expect(bike.isWorking()).toEqual(true);
   });
+  
 });

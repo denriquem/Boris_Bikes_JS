@@ -12,4 +12,10 @@ describe("Docking Station", function(){
     expect(bike.isWorking()).toEqual(true);
   });
 
+  it('can dock a bike', function(){
+    bike = new Bike();
+    dockingStation = new DockingStation();
+    expect(dockingStation.dock(bike)).toEqual(bike)
+  });
+
 });
