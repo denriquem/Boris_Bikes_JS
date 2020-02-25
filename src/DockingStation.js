@@ -11,5 +11,9 @@ DockingStation.prototype.releaseBike = function() {
 }
 
 DockingStation.prototype.dock = function(bike) {
+  if (this.bike !== undefined) {
+    return 'Cannot dock bike. The station is already at capacity'
+  } else {
   return this.bike = bike;
+  }
 }
