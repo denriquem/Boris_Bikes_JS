@@ -13,7 +13,3 @@ DockingStation.prototype.releaseBike = function() {
 DockingStation.prototype.dock = function(bike) {
   return this.bike = bike;
 }
-
-// DockingStation.prototype.bike = function() {
-//   return this.bike;
-// }
