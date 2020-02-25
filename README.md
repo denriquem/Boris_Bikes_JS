@@ -37,4 +37,11 @@ As a maintainer of the system,
 So that I can control the distribution of bikes,
 I'd like docking stations to not accept more than their capacity.
 
+As a system maintainer,
+So that I can plan the distribution of bikes,
+I want a docking station to have a capacity of 20 bikes
+
+
+
+
 ```

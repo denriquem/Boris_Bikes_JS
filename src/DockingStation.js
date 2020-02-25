@@ -1,19 +1,19 @@
 function DockingStation() {
-  this.bike;
+  this.bike = [];
 }
 
 DockingStation.prototype.releaseBike = function() {
-  if (this.bike == undefined) {
+  if (this.bike.length == 0) {
     return 'No bikes to release'
   } else {
-  return this.bike;
+  return this.bike.pop();
   }
 }
 
 DockingStation.prototype.dock = function(bike) {
-  if (this.bike !== undefined) {
+  if (this.bike.length >= 20) {
     return 'Cannot dock bike. The station is already at capacity'
   } else {
-  return this.bike = bike;
+  return this.bike.push(bike);
   }
 }
