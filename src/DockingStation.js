@@ -1,6 +1,6 @@
-function DockingStation() {
+function DockingStation(capacity=DEFAULT_CAPACITY) {
   this.bike = [];
-  this.capcity = DEFAULT_CAPACITY;
+  this.capcity = capacity;
 }
 
 DEFAULT_CAPACITY = 20;

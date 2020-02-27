@@ -38,9 +38,28 @@ describe("Docking Station", function(){
     expect(dockingStation.dock(new Bike())).toEqual('Cannot dock bike. The station is already at capacity')
     });
 
-    it('has a defualt capacity of 20', function(){
+    it('has a defualt capacity', function(){
       dockingStation = new DockingStation();
       expect(dockingStation.capcity).toEqual(DEFAULT_CAPACITY);
+    });
+  });
+
+  describe('initialization', function(){
+    it('has a variable capacity', function(){
+      dockingStation = new DockingStation(50);
+      for (var i = 0; i < 50; i++) {
+        dockingStation.dock(new Bike());
+      }
+      expect(dockingStation.dock(new Bike())).toEqual('Cannot dock bike. The station is already at capacity')
+    });
+
+    it('defaults capacity', function(){
+      dockingStation = new DockingStation();
+      bike = new Bike();
+      for (var i = 0; i < DEFAULT_CAPACITY; i++) {
+        dockingStation.dock(new Bike());
+      }
+      expect(dockingStation.dock(new Bike())).toEqual('Cannot dock bike. The station is already at capacity')
     });
   });
 });
