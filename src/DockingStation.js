@@ -1,7 +1,9 @@
 function DockingStation() {
   this.bike = [];
-  this.DEFAULT_CAPACITY = 20;
+  this.capcity = DEFAULT_CAPACITY;
 }
+
+DEFAULT_CAPACITY = 20;
 
 DockingStation.prototype.releaseBike = function() {
   if (this.isEmpty()) {
@@ -24,5 +26,5 @@ DockingStation.prototype.isEmpty = function() {
 }
 
 DockingStation.prototype.isFull = function() {
-  return this.bike.length >= this.DEFAULT_CAPACITY
+  return this.bike.length >= DEFAULT_CAPACITY
 }

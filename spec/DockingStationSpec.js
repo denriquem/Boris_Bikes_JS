@@ -30,13 +30,17 @@ describe("Docking Station", function(){
     expect(dockingStation.dock(bike)).toEqual(1)
     });
 
-    it('raises an error if station at capcity of 20', function(){
+    it('raises an error if station at capcity', function(){
     dockingStation = new DockingStation();
-    var times = 20;
-    for (var i = 0; i < times; i++) {
+    for (var i = 0; i < DEFAULT_CAPACITY; i++) {
       dockingStation.dock(new Bike());
     }
     expect(dockingStation.dock(new Bike())).toEqual('Cannot dock bike. The station is already at capacity')
+    });
+
+    it('has a defualt capacity of 20', function(){
+      dockingStation = new DockingStation();
+      expect(dockingStation.capcity).toEqual(DEFAULT_CAPACITY);
     });
   });
 });
