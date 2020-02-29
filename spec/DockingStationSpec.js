@@ -1,18 +1,19 @@
 describe("Docking Station", function(){
   var dockingStation;
 
+  beforeEach(function(){
+      dockingStation = new DockingStation();
+      bike = jasmine.createSpy();
+  });
 
   describe('releaseBike', function(){
 
     it('should release a bike', function(){
-      dockingStation = new DockingStation();
-      bike = jasmine.createSpy();
       dockingStation.dock(bike);
       expect(dockingStation.releaseBike()).toEqual(bike);
     });
 
     it('releases working bike', function(){
-      dockingStation = new DockingStation();
       bike = jasmine.createSpyObj('bike', ['isWorking']);
       bike.isWorking.and.returnValue(true)
       dockingStation.dock(bike)
@@ -21,7 +22,6 @@ describe("Docking Station", function(){
     });
 
     it('raises an error when there are no bikes availalbe', function(){
-      dockingStation = new DockingStation();
       expect(dockingStation.releaseBike()).toEqual('No bikes to release');
     });
 
@@ -29,22 +29,17 @@ describe("Docking Station", function(){
 
   describe('dock', function(){
     it('can dock a bike', function(){
-    bike = jasmine.createSpy()
-    dockingStation = new DockingStation();
     expect(dockingStation.dock(bike)).toEqual(1)
     });
 
     it('raises an error if station at capcity', function(){
-    dockingStation = new DockingStation();
     for (var i = 0; i < DEFAULT_CAPACITY; i++) {
       dockingStation.dock(new Bike());
     }
-    bike = jasmine.createSpy();
     expect(dockingStation.dock(bike)).toEqual('Cannot dock bike. The station is already at capacity')
     });
 
     it('has a defualt capacity', function(){
-      dockingStation = new DockingStation();
       expect(dockingStation.capcity).toEqual(DEFAULT_CAPACITY);
     });
   });
@@ -52,7 +47,6 @@ describe("Docking Station", function(){
   describe('initialization', function(){
     it('has a variable capacity', function(){
       dockingStation = new DockingStation(50);
-      bike = jasmine.createSpy();
       for (var i = 0; i < 50; i++) {
         dockingStation.dock(bike);
       }
@@ -60,8 +54,6 @@ describe("Docking Station", function(){
     });
 
     it('defaults capacity', function(){
-      dockingStation = new DockingStation();
-      bike = jasmine.createSpy();
       for (var i = 0; i < DEFAULT_CAPACITY; i++) {
         dockingStation.dock(bike);
       }
