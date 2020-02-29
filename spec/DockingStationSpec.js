@@ -1,17 +1,21 @@
 describe("Docking Station", function(){
   var dockingStation;
 
+
   describe('releaseBike', function(){
+
     it('should release a bike', function(){
       dockingStation = new DockingStation();
-      bike = new Bike();
+      bike = jasmine.createSpy();
       dockingStation.dock(bike);
       expect(dockingStation.releaseBike()).toEqual(bike);
     });
 
     it('releases working bike', function(){
+
       dockingStation = new DockingStation();
-      bike = new Bike();
+      bike = jasmine.createSpyObj('bike', ['isWorking']);
+      bike.isWorking.and.returnValue(true)
       dockingStation.dock(bike)
       bike = dockingStation.releaseBike();
       expect(bike.isWorking()).toEqual(true);
@@ -21,6 +25,14 @@ describe("Docking Station", function(){
       dockingStation = new DockingStation();
       expect(dockingStation.releaseBike()).toEqual('No bikes to release');
     });
+
+    // it('should not release a broken bike', function(){
+    //   dockingStation = new DockingStation();
+    //   bike = new Bike();
+    //   bike.reportBroken();
+    //   dockingStation.dock(bike);
+    //   expect(dockingStation.releaseBike()).toEqual('Cannot release a broken bike')
+    // });
   });
 
   describe('dock', function(){

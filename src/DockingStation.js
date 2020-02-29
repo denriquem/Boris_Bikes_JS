@@ -28,3 +28,7 @@ DockingStation.prototype.isEmpty = function() {
 DockingStation.prototype.isFull = function() {
   return this.bike.length >= DEFAULT_CAPACITY
 }
+
+DockingStation.prototype.workingBikes = function() {
+  return this.bike.some(bike.isWorking());
+}
