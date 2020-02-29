@@ -12,7 +12,6 @@ describe("Docking Station", function(){
     });
 
     it('releases working bike', function(){
-
       dockingStation = new DockingStation();
       bike = jasmine.createSpyObj('bike', ['isWorking']);
       bike.isWorking.and.returnValue(true)
@@ -26,18 +25,11 @@ describe("Docking Station", function(){
       expect(dockingStation.releaseBike()).toEqual('No bikes to release');
     });
 
-    // it('should not release a broken bike', function(){
-    //   dockingStation = new DockingStation();
-    //   bike = new Bike();
-    //   bike.reportBroken();
-    //   dockingStation.dock(bike);
-    //   expect(dockingStation.releaseBike()).toEqual('Cannot release a broken bike')
-    // });
   });
 
   describe('dock', function(){
     it('can dock a bike', function(){
-    bike = new Bike();
+    bike = jasmine.createSpy()
     dockingStation = new DockingStation();
     expect(dockingStation.dock(bike)).toEqual(1)
     });
@@ -47,7 +39,8 @@ describe("Docking Station", function(){
     for (var i = 0; i < DEFAULT_CAPACITY; i++) {
       dockingStation.dock(new Bike());
     }
-    expect(dockingStation.dock(new Bike())).toEqual('Cannot dock bike. The station is already at capacity')
+    bike = jasmine.createSpy();
+    expect(dockingStation.dock(bike)).toEqual('Cannot dock bike. The station is already at capacity')
     });
 
     it('has a defualt capacity', function(){
@@ -59,19 +52,20 @@ describe("Docking Station", function(){
   describe('initialization', function(){
     it('has a variable capacity', function(){
       dockingStation = new DockingStation(50);
+      bike = jasmine.createSpy();
       for (var i = 0; i < 50; i++) {
-        dockingStation.dock(new Bike());
+        dockingStation.dock(bike);
       }
-      expect(dockingStation.dock(new Bike())).toEqual('Cannot dock bike. The station is already at capacity')
+      expect(dockingStation.dock(bike)).toEqual('Cannot dock bike. The station is already at capacity')
     });
 
     it('defaults capacity', function(){
       dockingStation = new DockingStation();
-      bike = new Bike();
+      bike = jasmine.createSpy();
       for (var i = 0; i < DEFAULT_CAPACITY; i++) {
-        dockingStation.dock(new Bike());
+        dockingStation.dock(bike);
       }
-      expect(dockingStation.dock(new Bike())).toEqual('Cannot dock bike. The station is already at capacity')
+      expect(dockingStation.dock(bike)).toEqual('Cannot dock bike. The station is already at capacity')
     });
   });
 });
