@@ -6,6 +6,18 @@ describe('Van', function(){
     dockingStation = jasmine.createSpy()
   })
 
+  describe('getBikeFromStation', function(){
+    it('should remove broken bike from station', function(){
+    bike = jasmine.createSpyObj('bike', ['reportBroken'])
+    bike.reportBroken()
+    dockingStation = jasmine.createSpyObj('dockingStaiton', ['dock'])
+    dockingStation.dock(bike)
+    dockingStation = jasmine.createSpyObj('dockingStation', ['pop'])
+    spyOn(van, 'getBikeFromStation').and.returnValue(bike)
+    expect(van.getBikeFromStation(dockingStation)).toEqual(bike)
+    });
+  });
+
   describe('pickUp', function(){
     it('should pick up a bike from station', function(){
       bike = jasmine.createSpyObj('bike', ['reportBroken'])
