@@ -25,8 +25,8 @@ describe('Van', function(){
       bike.reportBroken()
       dockingStation.dock(bike)
       dockingStation = jasmine.createSpyObj('dockingStation', ['releaseBike'])
-      dockingStation.releaseBike.and.returnValue(bike)
-      bike = dockingStation.releaseBike();
+      spyOn(van, 'getBikeFromStation').and.returnValue(bike)
+      bike = van.getBikeFromStation(dockingStation);
       expect(van.pickUp(bike)).toEqual(1)
     });
   });
