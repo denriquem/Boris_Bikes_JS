@@ -18,7 +18,7 @@ describe('Van', function(){
     });
   });
 
-  describe('pickUp', function(){
+  describe('load', function(){
     it('should pick up a bike from station', function(){
       bike = jasmine.createSpyObj('bike', ['reportBroken'])
       dockingStation = jasmine.createSpyObj('dockingStaiton', ['dock'])
@@ -27,16 +27,20 @@ describe('Van', function(){
       dockingStation = jasmine.createSpyObj('dockingStation', ['releaseBike'])
       spyOn(van, 'getBikeFromStation').and.returnValue(bike)
       bike = van.getBikeFromStation(dockingStation);
-      expect(van.pickUp(bike)).toEqual(1)
+      expect(van.load(bike)).toEqual(1)
     });
   });
 
   describe('dropOff', function(){
     it('should drop off a bike at a garage', function(){
-      van.pickUp(bike)
+      van.load(bike)
       expect(van.dropOff()).toEqual(bike)
     });
-  })
+
+    it('raises an error when there are no bikes to drop off', function() {
+      expect(van.dropOff()).toEqual('no bikes to drop off!')
+    });
+  });
 
 
 });
