@@ -33,6 +33,13 @@ describe('Van', function(){
     it('has a default capacity', function(){
       expect(van.capacity).toEqual(4);
     });
+
+    it('cannot load more a bike when full', function(){
+      for (var i = 0; i < van.capacity; i ++) {
+        van.load(bike)
+      }
+      expect(van.load(bike)).toEqual("The van is already full. It can't load another bike")
+    });
   });
 
   describe('dropOff', function(){

@@ -4,7 +4,11 @@ function Van() {
 }
 
 Van.prototype.load = function(bike) {
+  if (this.bikeStore.length >= this.capacity) {
+    return "The van is already full. It can't load another bike"
+  } else {
   return this.bikeStore.push(bike)
+  }
 }
 
 Van.prototype.dropOff = function() {
