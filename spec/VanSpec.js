@@ -29,6 +29,10 @@ describe('Van', function(){
       bike = van.getBikeFromStation(dockingStation);
       expect(van.load(bike)).toEqual(1)
     });
+
+    it('has a default capacity', function(){
+      expect(van.capacity).toEqual(4);
+    });
   });
 
   describe('dropOff', function(){

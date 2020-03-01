@@ -1,5 +1,6 @@
 function Van() {
   this.bikeStore = []
+  this.capacity = 4
 }
 
 Van.prototype.load = function(bike) {
