@@ -6,7 +6,7 @@ describe ('Garage', function(){
 
   describe('storeBike', function(){
     it('should store bikes in the garage', function(){
-    bike = new Bike();
+    bike = jasmine.createSpyObj('bike', ['reportBroken'])
     bike.reportBroken();
     expect(garage.storeBike(bike)).toEqual(1)
     });
