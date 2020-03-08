@@ -10,5 +10,10 @@ describe ('Garage', function(){
     bike.reportBroken();
     expect(garage.storeBike(bike)).toEqual(1)
     });
+
+    it('has a default capacity', function(){
+      expect(garage.capacity).toEqual(20)
+    })
   });
+
 })
