@@ -14,3 +14,7 @@ Garage.prototype.fix = function() {
   }
   return 'All fixed!'
 }
+
+Garage.prototype.releaseBikeForVan = function() {
+  return this.bikeRack.pop();
+}

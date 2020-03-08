@@ -1,8 +1,9 @@
 describe ('Garage', function(){
+  var garage;
 
   beforeEach(function(){
     garage = new Garage();
-  });
+  })
 
   describe('storeBike', function(){
     it('should store bikes in the garage', function(){
@@ -18,11 +19,21 @@ describe ('Garage', function(){
 
   describe('fix', function(){
     it('should fix broken bikes', function(){
-    bike = jasmine.createSpyObj('bike', ['reportBroken'])
-    bike.reportBroken();
-    garage.storeBike(bike)
-    expect(garage.fix()).toEqual('All fixed!')
+      bike = jasmine.createSpyObj('bike', ['reportBroken'])
+      bike.reportBroken();
+      garage.storeBike(bike)
+      expect(garage.fix()).toEqual('All fixed!')
     });
   });
+
+  describe('releaseBikeForVan', function(){
+    it('should release a fixed bike', function(){
+      bike = jasmine.createSpyObj('bike', ['reportBroken'])
+      bike.reportBroken();
+      garage.storeBike(bike)
+      garage.fix()
+      expect(garage.releaseBikeForVan()).toEqual(bike)
+    })
+  })
 
 })
