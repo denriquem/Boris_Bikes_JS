@@ -6,3 +6,11 @@ function Garage() {
 Garage.prototype.storeBike = function(bike) {
   return this.bikeRack.push(bike)
 }
+
+Garage.prototype.fix = function() {
+  this.bikeRack
+  for (var i = 0; i < this.bikeRack.length; i ++) {
+      this.bikeRack[i].broken = false
+  }
+  return 'All fixed!'
+}
