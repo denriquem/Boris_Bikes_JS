@@ -4,7 +4,11 @@ function Garage() {
 }
 
 Garage.prototype.storeBike = function(bike) {
-  return this.bikeRack.push(bike)
+  if (this.isFull()) {
+    return "The garage is full. It can't store another bike."
+  } else {
+    return this.bikeRack.push(bike)
+  }
 }
 
 Garage.prototype.fix = function() {
@@ -17,4 +21,8 @@ Garage.prototype.fix = function() {
 
 Garage.prototype.releaseBikeForVan = function() {
   return this.bikeRack.pop();
+}
+
+Garage.prototype.isFull = function() {
+  return this.bikeRack.length >= this.capacity
 }

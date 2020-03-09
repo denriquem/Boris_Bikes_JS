@@ -34,7 +34,7 @@ describe('Van', function(){
       expect(van.capacity).toEqual(4);
     });
 
-    it('cannot load more a bike when full', function(){
+    it('cannot load a bike when full', function(){
       for (var i = 0; i < van.capacity; i ++) {
         van.load(bike)
       }
